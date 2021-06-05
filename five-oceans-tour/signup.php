@@ -7,6 +7,7 @@ require_once "config.php";
     $name = $email = $password = "";
     $name_err = $email_err = $password_err = "";
 
+    $r_token=rand(1000,9999);
 
     // Processing form data when form is submitted
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -45,16 +46,17 @@ require_once "config.php";
         // Check input errors before inserting in database
         if(empty($name_err) && empty($email_err) && empty($password_err)){
             // Prepare an insert statement
-            $sql = "INSERT INTO user (name, email, password) VALUES (?, ?, ?)";
+            $sql = "INSERT INTO user (name, email, password, token) VALUES (?, ?, ?, ?)";
              
             if($stmt = mysqli_prepare($link, $sql)){
                 // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, "sss", $param_name, $param_email, $param_password);
+                mysqli_stmt_bind_param($stmt, "sssi", $param_name, $param_email, $param_password,$param_token);
 
                 // Set parameters
                 $param_name = $name;
                 $param_email = $email;
                 $param_password = $password;
+                $param_token=$r_token;
 
                 // Attempt to execute the prepared statement
                 if(mysqli_stmt_execute($stmt)){

@@ -33,10 +33,21 @@
 			<br><br>
 			<input type="email" placeholder="Email" name="email" required />
 			<input type="password" placeholder="Password" name="password" minlength="8" required/>
-			<!-- <a href="#">Forgot your password?</a> -->
+			<!-- Forgot Password -->
+			<a href="recover_email.php">Forgot your password?</a>
 			<br><br>
-			<button>Sign In</button>
-			<a href="#">Forgot Password ?</a>
+			<button>Sign In</button><br><br>
+			<?php
+			session_start();
+			// $_SESSION['msg']="";
+			if(isset($_SESSION['msg'])){
+				echo "<h3>".$_SESSION['msg']."</h3>";
+				$_SESSION['msg']="";
+			}else{
+				echo $_SESSION['msg']="";
+			}
+			?>
+			
 			<span style="color: red;">
 				<?php 
 				if(isset($_GET['error'])=='1')
