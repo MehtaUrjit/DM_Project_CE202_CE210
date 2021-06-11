@@ -12,7 +12,7 @@
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
   <div class="form-group col-md-3">
     <label for="r_email">Email</label>
-    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email for reset Password" name="r_email" minlength="8" required>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email for reset Password" name="r_email" minlength="8" required>
   </div>
   <br>
   
