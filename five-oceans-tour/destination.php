@@ -23,8 +23,7 @@
                       session_start();
                       if(isset( $_SESSION['loggedin'])==true)
                         {echo "<a href='confirm_des.php'>My Bookings</a> ";}
-                    else
-                        {echo "<a href='login_form.php'>Login/Signup</a>";}   
+                
                     ?>
 			</li>
 			<li><?php 
